@@ -92,6 +92,8 @@ def calcular(resposta):
     try:
         expressao = resposta.cget("text")
         resultado = eval(expressao)
+        if isinstance(resultado, float):
+            resultado = round(resultado, 3)
         resposta.configure(text=str(resultado))
         resultado_mostrado = True
     except:
